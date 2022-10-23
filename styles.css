@@ -21,33 +21,52 @@ header {
 h1 {
     font-size: 8rem;
 }
-
 .container {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    place-items: center;
+    width: 100%;
+    height: 400px;
     padding: 20px;
 }
 
 .container .image {
     border-radius: 20px;
-    margin: 20px;
-    width: auto;
-    height: 500px;
+    width: 200px;
+    height: 200px;
+    margin-left: 10px;
+    object-fit: cover;
+    transition: transform 500ms ease;
+    -webkit-transition: transform 500ms ease;
+    -moz-transition: transform 500ms ease;
+    -ms-transition: transform 500ms ease;
+    -o-transition: transform 500ms ease;
 }
-
+.container .image:hover {
+    box-shadow: 0px 0px 10px 1px #000;
+    cursor: pointer;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.container_btn {
+    width: 100%;
+    display: flex;
+    place-content: center;
+}
 .random-cat-button {
     align-items: center;
     background-color: rgb(228, 164, 94);
     border: 5px solid rgb(249, 151, 66);
     border-radius: 15px;
     cursor: pointer;
-    font-family: 'Pacifico', cursive;
     font-size: 2rem;
+    font-family: 'Pacifico', cursive;
     padding: 12px;
-    width: 200px;
     height: auto;
+    width: 200px;
 }
 
 .random-cat-button:hover {

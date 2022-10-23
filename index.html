@@ -14,10 +14,35 @@
     <header>
         <h1>Random Cats</h1>
     </header>
-    <section class="container">
-        <img id="img" alt="Cat random Picture" class="image">
-        <button type="button" class="random-cat-button"> Show me a cat!</button>
+    <section id="randomMichis" class="container">
+        <span id="rnadomMichisError"></span>
+
+        <article>
+            <img id="img" alt="Cat random Picture" class="image">
+            <button>Guardar Michi en favoritos</button>
+        </article>
+        <article>
+            <img id="img1" alt="Cat random Picture" class="image">
+            <button>Guardar Michi en favoritos</button>
+        </article>
+        <article>
+            <img id="img2" alt="Cat random Picture" class="image">
+            <button>Guardar Michi en favoritos</button>
+        </article>
     </section>
+    <div class="container_btn">
+        <button type="button" class="random-cat-button" onclick="reloadRandomMichis()"> Show me a cat!</button>
+    </div>
+
+    <!-- SECTION FAVORTIES -->
+    <section id="favorites">
+        <h2>Michis favoritos</h2>
+        <article>
+            <img id="img" alt="Cat random Picture" class="image">
+            <button>Sacar al michi de favoritos</button>
+        </article>
+    </section>
+
     <script src="./main.js"></script>
 </body>
 </html>
