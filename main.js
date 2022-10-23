@@ -23,7 +23,6 @@ const API_URL_RANDOM = [
 const API_URL_FAVOURITIES = [
     'https://api.thecatapi.com/v1/favourites',
     '?order=Desc',
-    '&limit=3',
     `&${API_URL_KEY}`
 ].join('');
 
@@ -40,10 +39,17 @@ async function reloadRandomMichis() {
         const img = document.querySelector('#img');
         const img1 = document.querySelector('#img1');
         const img2 = document.querySelector('#img2');
+        const btn1 = document.getElementById("btn-1");
+        const btn2 = document.getElementById("btn-2");
+        const btn3 = document.getElementById("btn-3");
         
         img.src = data[0].url;
         img1.src = data[1].url;
         img2.src = data[2].url;
+
+        btn1.onclick = () => saveFavouriteMichis(data[0].id)
+        btn2.onclick = () => saveFavouriteMichis(data[1].id)
+        btn3.onclick = () => saveFavouriteMichis(data[2].id)
     }
 }
 
@@ -54,8 +60,44 @@ async function reloadFavoritesMichis() {
     console.log(data)
     if(res.status !== 200){
         spanErro.innerText = "Hubo un error: " + res.status + data.message;
+    }else {
+        data.forEach(michi => {
+            const favoritesMichis = document.getElementById("favorites");
+            const article = document.createElement("article");
+            const img = document.createElement("img");
+            const btn = document.createElement("button");
+            const btnText = document.createTextNode("Sacar el michi de favoritos");
+
+            btn.appendChild(btnText);
+            img.src = michi.image.url;
+            article.appendChild(img);
+            article.appendChild(btn);
+            favoritesMichis.appendChild(article);   
+            
+        });
     }
 }
+
+async function saveFavouriteMichis(id){
+    const res = await fetch(API_URL_FAVOURITIES, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            image_id: id
+        })
+    });
+    const data = await res.json();
+
+    console.log("michi")
+    console.log(res)
+
+
+    if(res.status !== 200){
+        spanErro.innerText = "Hubo un error: " + res.status + data.message;
+    }
+};
 
 reloadRandomMichis()
 reloadFavoritesMichis()
