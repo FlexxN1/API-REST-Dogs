@@ -34,7 +34,10 @@ const API_URL_DELETE = (id) => [
     `${id}`
 ].join('');
     
-
+const api = axios.create({
+    baseURL: "https://api.thecatapi.com/v1"
+});
+api.defaults.headers.common["X-API-KEY"] = API_URL_KEY
 
 //forma 3 
 async function reloadRandomMichis() {
@@ -101,7 +104,15 @@ async function reloadFavoritesMichis() {
 }
 
 async function saveFavouriteMichis(id){
-    const res = await fetch(API_URL_FAVOURITIES, {
+
+    //usando la librearia de AXIOS
+    const { data, status } = await api.post("/favourites", {
+        image_id: id
+    })
+
+
+    //usando Fetch
+    /* const res = await fetch(API_URL_FAVOURITIES, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -114,11 +125,11 @@ async function saveFavouriteMichis(id){
     const data = await res.json();
 
     console.log("michi")
-    console.log(res)
+    console.log(res)*/
 
 
-    if(res.status !== 200){
-        spanErro.innerText = "Hubo un error: " + res.status + data.message;
+    if(status !== 200){
+        spanErro.innerText = "Hubo un error: " + status + data.message;
     }else{
         console.log("Michi guardado en favoritos")
         reloadFavoritesMichis()
