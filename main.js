@@ -171,6 +171,17 @@ async function uploadMichiPhoto(){
 
 };
 
+
+//para ver el preview de la imagen a subir
+const imageUp = document.getElementById('file');
+const michiUp = document.getElementById('michiUp');
+imageUp.onchange = evt => {
+    const [file] = imageUp.files
+    if (file) {
+        michiUp.src = URL.createObjectURL(file)
+    }
+}
+
 reloadRandomMichis()
 reloadFavoritesMichis()
 /* fetch(URL)
