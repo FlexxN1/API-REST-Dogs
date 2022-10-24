@@ -27,6 +27,14 @@ const API_URL_FAVOURITIES = [
 ].join('');
 
 
+const API_URL_DELETE = (id) => [
+    'https://api.thecatapi.com/v1/favourites/',
+    `${id}`,
+    `?${API_URL_KEY}`
+].join('');
+    
+
+
 //forma 3 
 async function reloadRandomMichis() {
     const res = await fetch(API_URL_RANDOM);
@@ -61,8 +69,15 @@ async function reloadFavoritesMichis() {
     if(res.status !== 200){
         spanErro.innerText = "Hubo un error: " + res.status + data.message;
     }else {
+        const favoritesMichis = document.getElementById("favorites");
+        favoritesMichis.innerHTML = "";
+
+        const h2 = document.createElement("h2");
+        const h2Text = document.createTextNode("Michis favoritos");
+        h2.appendChild(h2Text);
+        favoritesMichis.appendChild(h2)
+
         data.forEach(michi => {
-            const favoritesMichis = document.getElementById("favorites");
             const article = document.createElement("article");
             const img = document.createElement("img");
             const btn = document.createElement("button");
@@ -70,6 +85,7 @@ async function reloadFavoritesMichis() {
 
             btn.appendChild(btnText);
             img.src = michi.image.url;
+            btn.onclick = () => deleteFavouriteMichi(michi.id);
             article.appendChild(img);
             article.appendChild(btn);
             favoritesMichis.appendChild(article);   
@@ -96,6 +112,24 @@ async function saveFavouriteMichis(id){
 
     if(res.status !== 200){
         spanErro.innerText = "Hubo un error: " + res.status + data.message;
+    }else{
+        console.log("Michi guardado en favoritos")
+        reloadFavoritesMichis()
+    }
+};
+
+async function deleteFavouriteMichi(id){
+    const res = await fetch(API_URL_DELETE(id), {
+        method: "DELETE",
+    });
+    const data = await res.json();
+
+    
+    if(res.status !== 200){
+        spanErro.innerText = "Hubo un error: " + res.status + data.message;
+    }else {
+        console.log("Michi eliminado de favoritos");
+        reloadFavoritesMichis();
     }
 };
 
