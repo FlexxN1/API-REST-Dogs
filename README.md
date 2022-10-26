@@ -1,19 +1,22 @@
 # API-REST-Dogs
 Consumiendo una API REST de "TheDogApi"
 
-Es un juego de memorizar la secuencia de colores que te marca la maquina, tiene 3 niveles de dificultad.
-
 Recursos :
 
 - [SweetAlert](https://cdnjs.com/libraries/sweetalert)
 
+- [TheCatAPI-API_KEY](https://docs.thecatapi.com/)
+
+- [TheCatAPI-API_KEY](https://thecatapi.com/)
+
+
 ## View project 🚀🙋🏻‍♂️
-## [Deploy](https://flexxn1.github.io/Juego-de-Colores//)
+## [Deploy](https://flexxn1.github.io/API-REST-Cats/)
 
 ## Installation ⚖
-Instagram Clone:
+API-REST-Cats:
 ```
-git clone https://github.com/FlexxN1/Juego-de-Colores.git
+git clone https://github.com/FlexxN1/API-REST-Cats.git
  ```
 
 ## License 🔐
