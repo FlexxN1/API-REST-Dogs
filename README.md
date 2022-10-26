@@ -5,9 +5,9 @@ Recursos :
 
 - [SweetAlert](https://cdnjs.com/libraries/sweetalert)
 
-- [TheCatAPI-API_KEY](https://docs.thecatapi.com/)
+- [TheCatAPI](https://thecatapi.com/)
 
-- [TheCatAPI-API_KEY](https://thecatapi.com/)
+- [TheCatAPI-DOCS](https://docs.thecatapi.com/)
 
 
 ## View project 🚀🙋🏻‍♂️
