@@ -10,7 +10,7 @@ html {
 
 body {
     font-family: 'Square Peg', cursive;
-    background-color: brown;
+    background-color: white;
 }
 
 header {
@@ -42,7 +42,7 @@ h1 {
     -ms-transition: transform 500ms ease;
     -o-transition: transform 500ms ease;
 }
-.container .image:hover {
+.container .image:hover, #michiUp:hover {
     box-shadow: 0px 0px 10px 1px #000;
     cursor: pointer;
     transform: scale(1.1);
@@ -68,7 +68,59 @@ h1 {
     height: auto;
     width: 200px;
 }
-
+#favorites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+#favorites article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0 20px 0;
+    flex-wrap: wrap;
+    background-color: #000;
+}
+#favorites img {
+    width: 100px;
+    height: 100px;
+}
+#michiUp {
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+    object-fit: cover;
+    transition: transform 500ms ease;
+    -webkit-transition: transform 500ms ease;
+    -moz-transition: transform 500ms ease;
+    -ms-transition: transform 500ms ease;
+    -o-transition: transform 500ms ease;
+}
+#uploadingMichi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.uploadMichiText {
+    font-size: 50px;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0px 100px 0px 100px;
+}
+#uploadingForm {
+    display: flex;
+    padding: 20px;
+    width: 50%;
+    border: 3px dashed;
+    flex-direction: column;
+    align-items: center;
+}
 .random-cat-button:hover {
     border: 5px solid rgb(228, 164, 94);
     background-color: rgb(227, 141, 67);

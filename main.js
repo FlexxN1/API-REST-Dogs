@@ -174,7 +174,8 @@ async function uploadMichiPhoto(){
         console.log(`Hubo un error al subir michi: ${res.status} ${data.message}`)
     }
     else {
-        console.log("Foto de michi cargada :)");
+        const spinner = document.getElementById("spin")
+        swal("Foto de michi cargada :)");
         console.log({ data });
         console.log(data.url);
         saveFavouriteMichis(data.id) //para agregar el michi cargado a favoritos.
