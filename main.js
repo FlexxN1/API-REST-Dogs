@@ -92,13 +92,14 @@ async function reloadFavoritesMichis() {
             const article = document.createElement("article");
             const img = document.createElement("img");
             const btn = document.createElement("button");
-            const btnText = document.createTextNode("Sacar el michi de favoritos");
+            const btnText = document.createTextNode("Eliminar Michi");
 
             btn.appendChild(btnText);
             img.src = michi.image.url;
             btn.onclick = () => deleteFavouriteMichi(michi.id);
             article.appendChild(img);
             article.appendChild(btn);
+            btn.id = "button_fav"
             favoritesMichis.appendChild(article);   
             
         });
@@ -133,7 +134,7 @@ async function saveFavouriteMichis(id){
     if(status !== 200){
         spanErro.innerText = "Hubo un error: " + status + data.message;
     }else{
-        console.log("Michi guardado en favoritos")
+        swal("Random Cats", "Michi guardado en favoritos", "success");
         reloadFavoritesMichis()
     }
 };
@@ -151,7 +152,7 @@ async function deleteFavouriteMichi(id){
     if(res.status !== 200){
         spanErro.innerText = "Hubo un error: " + res.status + data.message;
     }else {
-        console.log("Michi eliminado de favoritos");
+        swal("Random Cats", "Michi eliminado de favoritos", "success");
         reloadFavoritesMichis();
     }
 };
@@ -226,7 +227,7 @@ michiUp.style.display = "none"
 imageUp.onchange = evt => {
     const [file] = imageUp.files
     if (file) {
-        michiUp.style.display = "block"
+        michiUp.style.display = "flex"
         michiUp.src = URL.createObjectURL(file)
         bottonSubmit.disabled = false
         
