@@ -39,6 +39,13 @@ const api = axios.create({
 });
 api.defaults.headers.common["X-API-KEY"] = API_URL_KEY
 
+const span = document.getElementById("uploadingForm");
+span.style.display = "none"
+
+
+const spinner = document.getElementById("spin");
+spinner.style.display= "none"
+
 //forma 3 
 async function reloadRandomMichis() {
     const res = await fetch(API_URL_RANDOM);
@@ -80,11 +87,6 @@ async function reloadFavoritesMichis() {
     }else {
         const favoritesMichis = document.getElementById("favorites");
         favoritesMichis.innerHTML = "";
-
-        const h2 = document.createElement("h2");
-        const h2Text = document.createTextNode("Michis favoritos");
-        h2.appendChild(h2Text);
-        favoritesMichis.appendChild(h2)
 
         data.forEach(michi => {
             const article = document.createElement("article");
@@ -153,8 +155,34 @@ async function deleteFavouriteMichi(id){
         reloadFavoritesMichis();
     }
 };
+const bottonSubmit = document.getElementById("bottonSubmit")
+const file = document.getElementById("file");
+const label = document.querySelector(".label");
+
+function spiner(){
+    const subeMichi = document.querySelector(".uploadMichiText");
+    
+    subeMichi.addEventListener("click", function(){
+        swal("Advertencia!", "Solo puedes subir fotos que contengan un Michi, de lo contrario el algoritmo no lo subira!");
+        span.style.display = "flex"
+        bottonSubmit.disabled = true
+
+    })
+}
+spiner()
+
+
+bottonSubmit.addEventListener("click", ()=> {
+    bottonSubmit.style.display = "none"
+    file.style.display = "none"
+    michiUp.style.display = "none"
+    label.style.display = "none"
+    spinner.style.display = "flex"
+
+});
 
 async function uploadMichiPhoto(){
+
     const form = document.getElementById("uploadingForm");
     const formData = new FormData(form);
 
@@ -172,25 +200,36 @@ async function uploadMichiPhoto(){
 
     if (res.status !== 201) {
         console.log(`Hubo un error al subir michi: ${res.status} ${data.message}`)
+        swal('Random Cats', 'Lo sentimos, no pudimos subir tu Michi! ☹', 'error')
+
     }
     else {
-        const spinner = document.getElementById("spin")
-        swal("Foto de michi cargada :)");
+        swal('Random Cats', 'Foto del Michi subida! 😀🥳🎉', 'success');
+        spinner.style.display = "none"
+        bottonSubmit.style.display = "flex"
+        file.style.display = "flex"
+        michiUp.style.display = "flex"
+        label.style.display = "flex"
+
         console.log({ data });
         console.log(data.url);
         saveFavouriteMichis(data.id) //para agregar el michi cargado a favoritos.
     }
-
 };
+
 
 
 //para ver el preview de la imagen a subir
 const imageUp = document.getElementById('file');
 const michiUp = document.getElementById('michiUp');
+michiUp.style.display = "none"
 imageUp.onchange = evt => {
     const [file] = imageUp.files
     if (file) {
+        michiUp.style.display = "block"
         michiUp.src = URL.createObjectURL(file)
+        bottonSubmit.disabled = false
+        
     }
 }
 
