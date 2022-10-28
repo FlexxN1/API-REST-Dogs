@@ -83,7 +83,7 @@ async function reloadRandomMichis() {
         const btn1 = document.getElementById("btn-1");
         const btn2 = document.getElementById("btn-2");
         const btn3 = document.getElementById("btn-3");
-        
+
         spinner1.style.display = "none"
         spinner2.style.display = "none"
         spinner3.style.display = "none"
@@ -120,15 +120,53 @@ async function reloadFavoritesMichis() {
         data.forEach(michi => {
             const article = document.createElement("article");
             const img = document.createElement("img");
-            const btn = document.createElement("button");
             const btnText = document.createTextNode("Eliminar Michi");
+            const btn = document.createElement("button");
 
             btn.appendChild(btnText);
             img.src = michi.image.url;
-            btn.onclick = () => deleteFavouriteMichi(michi.id);
+            btn.id = "button_fav"
+            btn.addEventListener("click", () => {
+
+            const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Estas seguro de eliminar el Michi ?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Si! :( ',
+                cancelButtonText: 'No, cancelar!',
+                reverseButtons: true
+                }).then((result) => {
+                if (result.isConfirmed && res.status == 200) {
+                    swalWithBootstrapButtons.fire(
+                    'Deleted!',
+                    'Michi eliminado de favoritos',
+                    'success'
+                    )
+                    deleteFavouriteMichi(michi.id);
+                } else if (
+                    /* Read more about handling dismissals below */
+                        result.dismiss === Swal.DismissReason.cancel || res.status !== 200
+                    ) {
+                        swalWithBootstrapButtons.fire(
+                            'Cancelado',
+                            'Tu Michi está a salvo :)',
+                            'error'
+                        )
+                    }
+                }) 
+            })
             article.appendChild(img);
             article.appendChild(btn);
-            btn.id = "button_fav"
+            
             favoritesMichis.appendChild(article);   
             
         });
@@ -176,14 +214,16 @@ async function deleteFavouriteMichi(id){
         }
     });
     const data = await res.json();
+    reloadFavoritesMichis();
 
     
-    if(res.status !== 200){
+/*    if(res.status !== 200){
         spanErro.innerText = "Hubo un error: " + res.status + data.message;
     }else {
         swal("Random Cats", "Michi eliminado de favoritos", "success");
         reloadFavoritesMichis();
-    }
+    }*/
+
 };
 const bottonSubmit = document.getElementById("bottonSubmit")
 const file = document.getElementById("file");
