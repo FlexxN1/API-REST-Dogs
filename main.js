@@ -46,22 +46,51 @@ span.style.display = "none"
 const spinner = document.getElementById("spin");
 spinner.style.display= "none"
 
+const spinner1 = document.getElementById("spin1");
+const spinner2 = document.getElementById("spin2");
+const spinner3 = document.getElementById("spin3");
+spinner1.style.display = "none"
+spinner2.style.display = "none"
+spinner3.style.display = "none"
+
+const btnReload = document.querySelector(".random-cat-button");
+btnReload.addEventListener("click", () =>{
+    img.style.display = "none"
+    img1.style.display = "none"
+    img2.style.display = "none"
+
+    spinner1.style.display = "flex"
+    spinner2.style.display = "flex"
+    spinner3.style.display = "flex"
+});
+
+
+const img = document.querySelector('#img');
+const img1 = document.querySelector('#img1');
+const img2 = document.querySelector('#img2');
+
+
 //forma 3 
 async function reloadRandomMichis() {
     const res = await fetch(API_URL_RANDOM);
     const data = await res.json();
     console.log("random")
     console.log(data)
+    
     if(res.status !== 200){
         spanErro.innerHTML = "Hubo un error: " + res.status;
     }else{
-        const img = document.querySelector('#img');
-        const img1 = document.querySelector('#img1');
-        const img2 = document.querySelector('#img2');
         const btn1 = document.getElementById("btn-1");
         const btn2 = document.getElementById("btn-2");
         const btn3 = document.getElementById("btn-3");
         
+        spinner1.style.display = "none"
+        spinner2.style.display = "none"
+        spinner3.style.display = "none"
+
+        img.style.display = "flex"
+        img1.style.display = "flex"
+        img2.style.display = "flex"
         img.src = data[0].url;
         img1.src = data[1].url;
         img2.src = data[2].url;
