@@ -107,8 +107,8 @@ h1 {
     min-width: 200px;
     flex-wrap: wrap;
     overflow-y: scroll;
-    height: 197px;
-    gap: 20px;
+    height: 204px;
+    gap: 13px;
     background: linear-gradient(360deg, #fff 0%, rgba(255, 255, 255, 0) 60%);
     box-shadow: 0px 7px 6px 1px #000;
 }
