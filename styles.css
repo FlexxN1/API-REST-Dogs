@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Square Peg', cursive;
+    background-color: rgb(44, 114, 243);
+    background-color: #DFDBE5;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.17'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(34, 19, 165);
+    box-shadow: 0px 7px 6px 1px #000;
+    height: 90px
+}
+
+h1 {
+    font-size: 6rem;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 250px;
+    padding: 20px;
+}
+.container_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-left: 50px;
+    position: relative;
+}
+.container_img {
+    width: 170px;
+    height: 150px;
+}
+.container_card #btn-2, #btn-1, #btn-3, #button_fav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-weight: 550;
+    background-color: rgb(228, 164, 94);
+    border: 5px solid rgb(249, 151, 66);
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 8px;
+    height: 10px;
+    width: 200px;
+}
+.container .image {
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+    object-fit: cover;
+    transition: transform 500ms ease;
+    -webkit-transition: transform 500ms ease;
+    -moz-transition: transform 500ms ease;
+    -ms-transition: transform 500ms ease;
+    -o-transition: transform 500ms ease;
+}
+.container .image:hover {
+    box-shadow: 0px 0px 10px 1px #000;
+    cursor: pointer;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.container_btn {
+    width: 100%;
+    display: flex;
+    place-content: center;
+}
+.random-cat-button {
+    align-items: center;
+    background-color: rgb(228, 164, 94);
+    border: 5px solid rgb(249, 151, 66);
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    padding: 12px;
+    height: auto;
+    width: 200px;
+}
+#favorites {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 197px;
+    gap: 20px;
+    background: linear-gradient(360deg, #fff 0%, rgba(255, 255, 255, 0) 60%);
+    box-shadow: 0px 7px 6px 1px #000;
+}
+#favorites article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 0 0px 0;
+    flex-wrap: wrap;
+}
+#favorites img {
+    width: 137px;
+    height: 114px;
+    object-fit: cover;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+#michiUp {
+    position: absolute;
+    transform: translate(-50px, 10px);
+    align-self: flex-end;
+    margin-top: 2px;
+    border-radius: 20px;
+    width: 140px;
+    height: 160px;
+    margin-left: 10px;
+    object-fit: cover;
+    -webkit-transform: translate(-50px, 10px);
+    -moz-transform: translate(-50px, 10px);
+    -ms-transform: translate(-50px, 10px);
+    -o-transform: translate(-50px, 10px);
+}
+#uploadingMichi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.container_h2 {
+    margin-top: 10px;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(34, 19, 165);
+    box-shadow: 0px 7px 6px 1px #000;
+}
+#h2 {
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.uploadMichiText {
+    color: rgb(79 86 99);
+    padding: 0px 100px 0px 100px;
+    text-align: center;
+    background-color: rgb(228, 164, 94);
+    border: 5px solid rgb(249, 151, 66);
+    border-radius: 15px;
+    cursor: pointer;
+    width: 400px;
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    padding: 12px;
+    height: auto;
+    margin-bottom: 5px;
+}
+#uploadingForm {
+    position: relative;
+    display: flex;
+    padding: 5px 20px 20px 20px;
+    width: 50%;
+    height: 200px;
+    border: 3px dashed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.label {
+    cursor: pointer;
+    color: rgb(79 86 99);
+    font-size: 1.5rem;
+    width: 300px;
+    height: 50px;
+    font-weight: 700;
+    background-color: rgb(228, 164, 94);
+    border: 5px solid rgb(249, 151, 66);
+    text-align: center;
+}
+#file {
+    visibility: hidden;
+}
+#bottonSubmit {
+    cursor: pointer;
+    color: rgb(79 86 99);
+    font-size: 1.5rem;
+    width: 300px;
+    height: 50px;
+    font-weight: 700;
+    background-color: rgb(228, 164, 94);
+    border: 5px solid rgb(249, 151, 66);
+    text-align: center;
+}
+#uploadingForm #spin {
+    position: absolute;
+    top: 40%;
+    height: 40px;
+    width: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-top-color: #fff;
+    animation: spinner2 600ms linear infinite;
+}
+#spin1, #spin2, #spin3 {
+    position: absolute;
+    left: 45%;
+    top: 30%;
+    height: 40px;
+    width: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-top-color: #fff;
+    animation: spinner2 600ms linear infinite;
+}
+@keyframes spinner2 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.random-cat-button:hover, .uploadMichiText:hover, #btn-1:hover, #btn-2:hover, #btn-3:hover, .label:hover, #button_fav:hover {
+    border: 5px solid rgb(228, 164, 94);
+    background-color: rgb(227, 141, 67);
+}
