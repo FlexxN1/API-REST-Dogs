@@ -5,6 +5,8 @@ Recursos :
 
 - [SweetAlert](https://cdnjs.com/libraries/sweetalert)
 
+- [SweetAlert2.0](https://www.jsdelivr.com/package/npm/sweetalert2)
+
 - [TheCatAPI](https://thecatapi.com/)
 
 - [TheCatAPI-DOCS](https://docs.thecatapi.com/)
