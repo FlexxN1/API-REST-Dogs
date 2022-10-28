@@ -199,6 +199,7 @@ async function saveFavouriteMichis(id){
 
 
     if(status !== 200){
+        console.log(`Hubo un error al subir michi: ${status} ${data.message}`)
         spanErro.innerText = "Hubo un error: " + status + data.message;
     }else{
         swal("Random Cats", "Michi guardado en favoritos", "success");
@@ -269,7 +270,6 @@ async function uploadMichiPhoto(){
     const data = await res.json();
 
     if (res.status !== 201) {
-        console.log(`Hubo un error al subir michi: ${res.status} ${data.message}`)
         swal('Random Cats', 'Lo sentimos, no pudimos subir tu Michi! ☹', 'error')
 
     }
