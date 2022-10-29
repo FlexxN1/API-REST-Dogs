@@ -18,16 +18,31 @@
         <span id="rnadomMichisError"></span>
 
         <article class="container_card">
-            <img id="img" alt="Cat random Picture" class="image">
+            <div class="container_img">
+                <img id="img" alt="Cat random Picture" class="image">
+            </div>
             <button id="btn-1">Guardar Michi en favoritos</button>
+            <span class="span1">
+                <i id="spin1"></i>
+            </span>
         </article>
         <article class="container_card">
-            <img id="img1" alt="Cat random Picture" class="image">
+            <div class="container_img">
+                <img id="img1" alt="Cat random Picture" class="image">
+            </div>
             <button id="btn-2">Guardar Michi en favoritos</button>
+            <span class="span1">
+                <i id="spin2"></i>
+            </span>
         </article>
         <article class="container_card">
-            <img id="img2" alt="Cat random Picture" class="image">
+            <div class="container_img">
+                <img id="img2" alt="Cat random Picture" class="image">
+            </div>
             <button id="btn-3">Guardar Michi en favoritos</button>
+            <span class="span1">
+                <i id="spin3"></i>
+            </span>
         </article>
     </section>
     <div class="container_btn">
@@ -40,7 +55,7 @@
     </div>
     <section id="favorites">
             <article>
-                <img id="img" alt="Cat random Picture" class="image">
+                    <img id="img" alt="Cat random Picture" class="image">
                 <button></button>
             </article>
     </section>
@@ -54,11 +69,12 @@
             </span>
             <label class="label" for="file">Selecciona una foto</label>
             <input id="file" type="file" name="file" />
-            <button id="bottonSubmit" type="button" onclick="uploadMichiPhoto()" onchange="miniatura()" >Subir Foto</button>
+            <button id="bottonSubmit" type="button" accept="image/png, image/jpeg" onclick="uploadMichiPhoto()" >Subir Foto</button>
             <img id="michiUp" src="#" alt="Michi" />
 
         </form>
     </section>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./main.js"></script>
