@@ -13,7 +13,7 @@ Recursos :
 
 
 ## View project 🚀🙋🏻‍♂️
-## [Deploy](https://flexxn1.github.io/API-REST-Cats/)
+## [Deploy]([https://flexxn1.github.io/API-REST-Cats/](https://flexxn1.github.io/Flexx-RandomCats/)
 
 ## Installation ⚖
 API-REST-Cats:
