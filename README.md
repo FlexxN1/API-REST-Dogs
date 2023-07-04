@@ -1,4 +1,4 @@
-# API-REST-Dogs 🐈
+# Flexx Random Cats 🐈
 Consumiendo una API REST de "TheDogApi"
 
 Recursos :
