@@ -1,5 +1,5 @@
 # Flexx Random Cats 🐈
-Consumiendo una API REST de "TheDogApi"
+Flexx Random Cats🐈, es un sitio web, que nos permite visualizar michis aleatorios, colocar un michi en favoritos y poder subir una foto de un michi a la base de datos de la API.
 
 Recursos :
 
